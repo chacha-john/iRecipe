@@ -88,4 +88,7 @@ dependencies {
 
     // for adding card view
     implementation 'androidx.cardview:cardview:1.0.0'
+
+    // Picasso - for loading images
+    implementation "com.squareup.picasso:picasso:$picasso_version"
 }
