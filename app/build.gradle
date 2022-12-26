@@ -27,6 +27,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    buildTypes.each{
+        it.buildConfigField ('String', 'MDB_URL', '"https://www.themealdb.com/api/json/v1/1/"')
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -91,4 +94,35 @@ dependencies {
 
     // Picasso - for loading images
     implementation "com.squareup.picasso:picasso:$picasso_version"
+
+    // splash screen
+    implementation "androidx.core:core-splashscreen:$splash_screen"
+
+    // material io
+    implementation "com.google.android.material:material:$material_io_version"
+
+    // MPAndroidChart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // OkHttp
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:4.9.0"
+
+    // Gson
+    implementation 'com.google.code.gson:gson:2.9.0'
+
+    // Shared preferences
+    implementation "androidx.preference:preference-ktx:$preference_version"
+
+    // SMS verification
+    implementation 'com.google.android.gms:play-services-auth:20.4.0'
+    implementation 'com.google.android.gms:play-services-auth-api-phone:18.0.1'
+
+    //pin view
+    implementation 'com.github.ChaosLeong:PinView:1.4.3'
 }
