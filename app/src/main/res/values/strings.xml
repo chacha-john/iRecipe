@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">iRecipe</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="scar">Kusoma unasoma unatokea Juja, unachoma unachoma unapoteza future</string>
+    <string name="text_sample_food_name">Lasagne</string>
+</resources>
