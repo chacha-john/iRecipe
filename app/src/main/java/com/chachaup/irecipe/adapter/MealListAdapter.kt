@@ -5,17 +5,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.chachaup.irecipe.data.Meal
 import com.chachaup.irecipe.data.MealItem
 import com.chachaup.irecipe.databinding.MealItemBinding
 import com.squareup.picasso.Picasso
 
-class MealListAdapter : ListAdapter<MealItem, MealListAdapter.ItemViewHolder>(DiffCallback) {
+class MealListAdapter : ListAdapter<Meal, MealListAdapter.ItemViewHolder>(DiffCallback) {
 
     class ItemViewHolder(private val binding: MealItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(mealItem: MealItem) {
-            binding.name.text = mealItem.name
-            Picasso.get().load(mealItem.pictureUrl).into(binding.image)
+        fun bind(meal: Meal) {
+            binding.name.text = meal.strMeal
+            Picasso.get().load(meal.strMealThumb).into(binding.image)
         }
     }
 
@@ -40,12 +41,12 @@ class MealListAdapter : ListAdapter<MealItem, MealListAdapter.ItemViewHolder>(Di
     }
 
     companion object {
-        val DiffCallback = object : DiffUtil.ItemCallback<MealItem>() {
-            override fun areItemsTheSame(oldItem: MealItem, newItem: MealItem): Boolean {
-                return oldItem.id == newItem.id
+        val DiffCallback = object : DiffUtil.ItemCallback<Meal>() {
+            override fun areItemsTheSame(oldItem: Meal, newItem: Meal): Boolean {
+                return oldItem.idMeal == newItem.idMeal
             }
 
-            override fun areContentsTheSame(oldItem: MealItem, newItem: MealItem): Boolean {
+            override fun areContentsTheSame(oldItem: Meal, newItem: Meal): Boolean {
                 return oldItem == newItem
             }
 

@@ -1,9 +1,8 @@
 package com.chachaup.irecipe.network
 
 import com.chachaup.irecipe.BuildConfig
-import com.chachaup.irecipe.data.MealItem
+import com.chachaup.irecipe.data.Meal
 import com.chachaup.irecipe.data.MealResponseItem
-import okhttp3.Call
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -12,10 +11,10 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MealInterface {
-    @GET("meals")
+    @GET("search.php")
     fun getMeals(
         @Query("s") meal: String
-    ): MealResponseItem
+    ): retrofit2.Call<MealResponseItem>
 
     companion object{
         operator fun invoke(): MealInterface{
