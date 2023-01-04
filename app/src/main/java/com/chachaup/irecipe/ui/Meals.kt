@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import com.chachaup.irecipe.R
 import com.chachaup.irecipe.adapter.MealListAdapter
 import com.chachaup.irecipe.data.MealResponseItem
@@ -36,13 +37,14 @@ class Meals : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val rv = binding.recyclerViewRecipes
-        iRecipeClient.getMeals("meat").enqueue(object : Callback<MealResponseItem>{
+        iRecipeClient.getMeals("t").enqueue(object : Callback<MealResponseItem>{
 
             override fun onResponse(
                 call: Call<MealResponseItem>,
                 response: Response<MealResponseItem>
             ) {
                 adapter.submitList(response.body()?.meals)
+                rv.layoutManager = GridLayoutManager(context,2)
                 rv.adapter = adapter
             }
 

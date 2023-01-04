@@ -26,14 +26,12 @@
             app:queryHint="Search for recipes" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textHeader"
-            android:text="@string/scar"
+            android:text="@string/text_cta"
             android:textSize="15sp"
-            android:lineHeight="20sp"
             android:textStyle="bold"
-            android:paddingVertical="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/recyclerViewRecipes"
