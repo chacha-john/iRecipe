@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.chachaup.irecipe.R
 import com.chachaup.irecipe.adapter.MealListAdapter
 import com.chachaup.irecipe.data.MealResponseItem
@@ -25,6 +27,8 @@ class Meals : Fragment() {
 
     private val iRecipeClient: MealInterface = MealInterface.invoke()
 
+    private val recyclerView by lazy { binding.recyclerViewRecipes }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,16 +40,32 @@ class Meals : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val rv = binding.recyclerViewRecipes
-        iRecipeClient.getMeals("t").enqueue(object : Callback<MealResponseItem>{
+        searchByName("")
+        binding.apply {
+            iSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    val meal = query.toString()
+                    searchByName(meal)
+                    return true
+                }
 
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    return false
+                }
+
+            })
+        }
+    }
+
+    private fun searchByName(meal: String){
+        iRecipeClient.getMeals(meal).enqueue(object : Callback<MealResponseItem>{
             override fun onResponse(
                 call: Call<MealResponseItem>,
                 response: Response<MealResponseItem>
             ) {
                 adapter.submitList(response.body()?.meals)
-                rv.layoutManager = GridLayoutManager(context,2)
-                rv.adapter = adapter
+                recyclerView.layoutManager = GridLayoutManager(context,2)
+                recyclerView.adapter = adapter
             }
 
             override fun onFailure(call: Call<MealResponseItem>, t: Throwable) {
@@ -54,9 +74,6 @@ class Meals : Fragment() {
 
 
         })
-        binding.apply {
-
-        }
     }
 
 }
