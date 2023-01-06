@@ -6,34 +6,37 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.chachaup.irecipe.data.Meal
-import com.chachaup.irecipe.data.MealItem
 import com.chachaup.irecipe.databinding.MealItemBinding
 import com.squareup.picasso.Picasso
 
-class MealListAdapter : ListAdapter<Meal, MealListAdapter.ItemViewHolder>(DiffCallback) {
+class MealListAdapter(private val onClick: (Meal) -> Unit) : ListAdapter<Meal, MealListAdapter.ItemViewHolder>(DiffCallback) {
 
-    class ItemViewHolder(private val binding: MealItemBinding) :
+    class ItemViewHolder(private val binding: MealItemBinding, val onClick: (Meal) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
+        private var currentMeal: Meal? = null
         fun bind(meal: Meal) {
             binding.name.text = meal.strMeal
             Picasso.get().load(meal.strMealThumb).into(binding.image)
+            currentMeal = meal
+        }
+
+        init {
+            itemView.setOnClickListener{
+                currentMeal?.let {
+                    onClick(it)
+                }
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val viewHolder = ItemViewHolder(
+        return ItemViewHolder(
             MealItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            )
+            ), onClick
         )
-
-        viewHolder.itemView.setOnClickListener {
-            val position = viewHolder.adapterPosition
-            getItem(position)
-        }
-        return viewHolder
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {

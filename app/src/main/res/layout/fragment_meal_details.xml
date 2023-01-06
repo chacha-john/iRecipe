@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        tools:context=".ui.MealDetails">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:id="@+id/mealThumbnail"
+                android:src="@drawable/sample_meal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/strMeal" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_meal_name"
+                android:textSize="18sp"
+                android:id="@+id/strMeal"
+                android:paddingVertical="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/mealThumbnail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_ingredients"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:id="@+id/textIngredients"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/strMeal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutIngredients"
+                app:layout_constraintTop_toBottomOf="@id/textIngredients"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient1"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/measure1"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure1"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient1"
+                    app:layout_constraintStart_toEndOf="@id/ingredient1"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient2"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient1"
+                    app:layout_constraintEnd_toStartOf="@id/measure2"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure2"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient2"
+                    app:layout_constraintStart_toEndOf="@id/ingredient2"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient3"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient2"
+                    app:layout_constraintEnd_toStartOf="@id/measure3"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure3"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient3"
+                    app:layout_constraintStart_toEndOf="@id/ingredient3"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient4"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient3"
+                    app:layout_constraintEnd_toStartOf="@id/measure4"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure4"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient4"
+                    app:layout_constraintStart_toEndOf="@id/ingredient4"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient5"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient4"
+                    app:layout_constraintEnd_toStartOf="@id/measure5"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure5"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient5"
+                    app:layout_constraintStart_toEndOf="@id/ingredient5"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient6"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient5"
+                    app:layout_constraintEnd_toStartOf="@id/measure6"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure6"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient6"
+                    app:layout_constraintStart_toEndOf="@id/ingredient6"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient7"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient6"
+                    app:layout_constraintEnd_toStartOf="@id/measure7"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure7"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient7"
+                    app:layout_constraintStart_toEndOf="@id/ingredient7"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient8"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient7"
+                    app:layout_constraintEnd_toStartOf="@id/measure8"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure8"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient8"
+                    app:layout_constraintStart_toEndOf="@id/ingredient8"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/layoutIngredients"
+                android:text="@string/text_instructions"
+                android:id="@+id/textInstructions"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/textInstructions"
+                android:text="@string/text_instructions"
+                android:id="@+id/strInstructions"
+                android:textSize="15sp"
+                android:lineHeight="14dp"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonCancel"
+                android:text="@string/button_back"
+                android:background="@drawable/background_button_back"
+                app:icon="@drawable/ic_round_arrow_back_24"
+                app:iconGravity="textStart"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/buttonSave"
+                app:layout_constraintTop_toBottomOf="@id/strInstructions"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonSave"
+                app:iconTint="@color/smoke_white"
+                app:iconGravity="textEnd"
+                android:background="@drawable/background_button_save"
+                android:text="@string/button_favourite"
+                app:icon="@drawable/ic_baseline_bookmark_add_24"
+                app:layout_constraintBaseline_toBaselineOf="@id/buttonCancel"
+                app:layout_constraintStart_toEndOf="@id/buttonCancel"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+</layout>

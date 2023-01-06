@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp"
+        android:paddingHorizontal="20dp"
         tools:context=".ui.Meals">
 
         <androidx.appcompat.widget.SearchView
@@ -40,16 +40,16 @@
             app:layout_constraintBottom_toTopOf="@id/recyclerViewRecipes"
             app:layout_constraintTop_toBottomOf="@+id/iSearch" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="550dp"
-            android:id="@+id/recyclerViewRecipes"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/textHeader"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:listitem="@layout/meal_item"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_max="550dp"
+                android:id="@+id/recyclerViewRecipes"
+                app:layout_constraintTop_toBottomOf="@id/textHeader"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:listitem="@layout/meal_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

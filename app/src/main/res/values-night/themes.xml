@@ -2,13 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.IRecipe" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/ua_red</item>
+        <item name="colorPrimaryVariant">@color/burnt_umber</item>
+        <item name="colorOnPrimary">@color/gainsboro</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/burnt_umber</item>
+        <item name="colorSecondaryVariant">@color/rose_ebony</item>
+        <item name="colorOnSecondary">@color/gainsboro</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
