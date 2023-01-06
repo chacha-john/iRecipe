@@ -87,24 +87,7 @@ class Meals : Fragment() {
     }
 
     private fun adapterOnClick(meal: Meal){
-        sharedVM.meal = meal.strMeal
-        sharedVM.instructions = meal.strInstructions
-        sharedVM.ingredient1 = meal.strIngredient1
-        sharedVM.ingredient2 = meal.strIngredient2
-        sharedVM.ingredient3 = meal.strIngredient3
-        sharedVM.ingredient4 = meal.strIngredient4
-        sharedVM.ingredient5 = meal.strIngredient5
-        sharedVM.ingredient6 = meal.strIngredient6
-        sharedVM.ingredient7 = meal.strIngredient7
-        sharedVM.ingredient8 = meal.strIngredient8
-        sharedVM.measure1 = meal.strMeasure1
-        sharedVM.measure2 = meal.strMeasure2
-        sharedVM.measure3 = meal.strMeasure3
-        sharedVM.measure4 = meal.strMeasure4
-        sharedVM.measure5 = meal.strMeasure5
-        sharedVM.measure6 = meal.strMeasure6
-        sharedVM.measure7 = meal.strMeasure7
-        sharedVM.measure8 = meal.strMeasure8
+        sharedVM.mealObject = meal
         findNavController().navigate(R.id.action_meals_to_mealDetails)
     }
 

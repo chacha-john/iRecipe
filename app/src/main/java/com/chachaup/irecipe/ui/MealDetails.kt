@@ -15,6 +15,7 @@ import com.chachaup.irecipe.databinding.FragmentMealsBinding
 import com.chachaup.irecipe.utils.toast
 import com.chachaup.irecipe.vm.CookdVM
 import com.chachaup.irecipe.vm.CookdVMFactory
+import com.squareup.picasso.Picasso
 
 class MealDetails : Fragment() {
 
@@ -30,24 +31,25 @@ class MealDetails : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_meal_details, container, false)
-        binding.strMeal.text = sharedVM.meal
-        binding.strInstructions.text = sharedVM.instructions
-        binding.ingredient1.text = sharedVM.ingredient1
-        binding.ingredient2.text = sharedVM.ingredient2
-        binding.ingredient3.text = sharedVM.ingredient3
-        binding.ingredient4.text = sharedVM.ingredient4
-        binding.ingredient5.text = sharedVM.ingredient5
-        binding.ingredient6.text = sharedVM.ingredient6
-        binding.ingredient7.text = sharedVM.ingredient7
-        binding.ingredient8.text = sharedVM.ingredient8
-        binding.measure1.text = sharedVM.measure1
-        binding.measure2.text = sharedVM.measure2
-        binding.measure3.text = sharedVM.measure3
-        binding.measure4.text = sharedVM.measure4
-        binding.measure5.text = sharedVM.measure5
-        binding.measure6.text = sharedVM.measure6
-        binding.measure7.text = sharedVM.measure7
-        binding.measure8.text = sharedVM.measure8
+        binding.strMeal.text = sharedVM.mealObject.strMeal
+        binding.strInstructions.text = sharedVM.mealObject.strInstructions
+        binding.ingredient1.text = sharedVM.mealObject.strIngredient1
+        binding.ingredient2.text = sharedVM.mealObject.strIngredient2
+        binding.ingredient3.text = sharedVM.mealObject.strIngredient3
+        binding.ingredient4.text = sharedVM.mealObject.strIngredient4
+        binding.ingredient5.text = sharedVM.mealObject.strIngredient5
+        binding.ingredient6.text = sharedVM.mealObject.strIngredient6
+        binding.ingredient7.text = sharedVM.mealObject.strIngredient7
+        binding.ingredient8.text = sharedVM.mealObject.strIngredient8
+        binding.measure1.text = sharedVM.mealObject.strMeasure1
+        binding.measure2.text = sharedVM.mealObject.strMeasure2
+        binding.measure3.text = sharedVM.mealObject.strMeasure3
+        binding.measure4.text = sharedVM.mealObject.strMeasure4
+        binding.measure5.text = sharedVM.mealObject.strMeasure5
+        binding.measure6.text = sharedVM.mealObject.strMeasure6
+        binding.measure7.text = sharedVM.mealObject.strMeasure7
+        binding.measure8.text = sharedVM.mealObject.strMeasure8
+        Picasso.get().load(sharedVM.mealObject.strMealThumb).into(binding.mealThumbnail)
         return binding.root
     }
 
