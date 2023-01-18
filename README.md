@@ -6,7 +6,7 @@
 
 + [Description](#description)
 + [Technology Used](#technology-used)
-+ [Set up Instructions](#setup)
++ [Set up Instructions](#How-to-set-up)
 + [Licence](#licence)
 + [Authors Info](#authors-Info)
 
@@ -24,7 +24,7 @@
 [Go Back to the top](#iRecipe)
 
 
-# [How to set up](#setup)
+# [How to set up](#How-to-set-up)
 * Android Studio
 * Kotlin
 * Gradle
