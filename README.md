@@ -21,7 +21,10 @@
 * Android Studio
 * Retrofit2 Library
 
+[Go Back to the top](#iRecipe)
 
+
+#Setup
 [How to set up](#setup)
 * Android Studio
 * Kotlin
@@ -39,7 +42,7 @@
 
 [Go Back to the top](#iRecipe)
 
-# Authors Info(#authors-Info)
+# Authors Info(#authors Info)
 
 Linkedin - [Chacha John](https://www.linkedin.com/in/chachaup/)
 
