@@ -36,7 +36,7 @@
 [Go Back to the top](#iRecipe)
 
 
-# [Licence](LICENSE)
+# [License](LICENSE)
 
 [Go Back to the top](#iRecipe)
 
