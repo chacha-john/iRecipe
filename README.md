@@ -24,8 +24,7 @@
 [Go Back to the top](#iRecipe)
 
 
-# Setup
-[How to set up](#setup)
+# [How to set up](#setup)
 * Android Studio
 * Kotlin
 * Gradle
@@ -36,14 +35,12 @@
 
 [Go Back to the top](#iRecipe)
 
-# Licence
 
-[Licence](LICENSE)
+# [Licence](LICENSE)
 
 [Go Back to the top](#iRecipe)
 
-# Authors Info
-[Author's Info](#authors-Info)
+# [Author's Info](#authors-Info)
 
 Linkedin - [Chacha John](https://www.linkedin.com/in/chachaup/)
 
