@@ -2,4 +2,12 @@
 <resources>
     <string name="scar">Kusoma unasoma unatokea Juja, unachoma unachoma unapoteza future</string>
     <string name="text_sample_food_name">Lasagne</string>
+    <string name="text_cta">Check out some of our greatest hits!</string>
+    <string name="text_meal_name">Vegetarian \"Lobster\" Rolls</string>
+    <string name="text_ingredients">Ingredients</string>
+    <string name="text_ingredient_1">hearts of palm</string>
+    <string name="text_measure_1">28 oz</string>
+    <string name="text_instructions">Instructions</string>
+    <string name="button_back">Back</string>
+    <string name="button_favourite">Favourite</string>
 </resources>

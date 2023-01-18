@@ -5,7 +5,11 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#FF040201</color>
     <color name="white">#FFFFFFFF</color>
     <color name="smoke_white">#F5F5F5</color>
+    <color name="ua_red">#D22F56</color>
+    <color name="burnt_umber">#823229</color>
+    <color name="rose_ebony">#634139</color>
+    <color name="gainsboro">#E1D8D9</color>
 </resources>
