@@ -42,7 +42,8 @@
 
 [Go Back to the top](#iRecipe)
 
-# Authors Info(#authors-Info)
+# Authors Info
+[Author's Info](#authors-Info)
 
 Linkedin - [Chacha John](https://www.linkedin.com/in/chachaup/)
 
