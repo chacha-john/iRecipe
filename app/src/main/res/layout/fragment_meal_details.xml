@@ -206,6 +206,212 @@
                     app:layout_constraintBaseline_toBaselineOf="@id/ingredient8"
                     app:layout_constraintStart_toEndOf="@id/ingredient8"
                     app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient9"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient8"
+                    app:layout_constraintEnd_toStartOf="@id/measure9"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure9"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient9"
+                    app:layout_constraintStart_toEndOf="@id/ingredient9"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient10"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient9"
+                    app:layout_constraintEnd_toStartOf="@id/measure10"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure10"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient10"
+                    app:layout_constraintStart_toEndOf="@id/ingredient10"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient11"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient10"
+                    app:layout_constraintEnd_toStartOf="@id/measure11"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure11"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient11"
+                    app:layout_constraintStart_toEndOf="@id/ingredient11"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient12"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient11"
+                    app:layout_constraintEnd_toStartOf="@id/measure12"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure12"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient12"
+                    app:layout_constraintStart_toEndOf="@id/ingredient12"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient13"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient12"
+                    app:layout_constraintEnd_toStartOf="@id/measure13"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure13"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient13"
+                    app:layout_constraintStart_toEndOf="@id/ingredient13"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient14"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient13"
+                    app:layout_constraintEnd_toStartOf="@id/measure14"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure14"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient14"
+                    app:layout_constraintStart_toEndOf="@id/ingredient14"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient15"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient14"
+                    app:layout_constraintEnd_toStartOf="@id/measure15"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure15"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient15"
+                    app:layout_constraintStart_toEndOf="@id/ingredient15"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient16"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient15"
+                    app:layout_constraintEnd_toStartOf="@id/measure16"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure16"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient16"
+                    app:layout_constraintStart_toEndOf="@id/ingredient16"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient17"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient16"
+                    app:layout_constraintEnd_toStartOf="@id/measure17"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure17"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient17"
+                    app:layout_constraintStart_toEndOf="@id/ingredient17"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient18"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient17"
+                    app:layout_constraintEnd_toStartOf="@id/measure18"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure18"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient18"
+                    app:layout_constraintStart_toEndOf="@id/ingredient18"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient19"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient18"
+                    app:layout_constraintEnd_toStartOf="@id/measure19"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure19"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient19"
+                    app:layout_constraintStart_toEndOf="@id/ingredient19"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredient20"
+                    android:text="@string/text_ingredient_1"
+                    app:layout_constraintTop_toBottomOf="@id/ingredient19"
+                    app:layout_constraintEnd_toStartOf="@id/measure20"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/measure20"
+                    android:text="@string/text_measure_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ingredient20"
+                    app:layout_constraintStart_toEndOf="@id/ingredient20"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -228,7 +434,7 @@
                 android:text="@string/text_instructions"
                 android:id="@+id/strInstructions"
                 android:textSize="15sp"
-                android:lineHeight="14dp"
+                android:lineHeight="20dp"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
