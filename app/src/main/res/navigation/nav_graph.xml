@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/meals">
+    app:startDestination="@id/getStarted">
 
     <fragment
         android:id="@+id/meals"
@@ -21,6 +21,24 @@
         tools:layout="@layout/fragment_meal_details" >
         <action
             android:id="@+id/action_mealDetails_to_meals"
+            app:destination="@id/meals" />
+    </fragment>
+    <fragment
+        android:id="@+id/getStarted"
+        android:name="com.chachaup.irecipe.ui.GetStarted"
+        android:label="fragment_get_started"
+        tools:layout="@layout/fragment_get_started" >
+        <action
+            android:id="@+id/action_getStarted_to_accountSetup"
+            app:destination="@id/accountSetup" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountSetup"
+        android:name="com.chachaup.irecipe.ui.AccountSetup"
+        android:label="fragment_account_setup"
+        tools:layout="@layout/fragment_account_setup" >
+        <action
+            android:id="@+id/action_accountSetup_to_meals"
             app:destination="@id/meals" />
     </fragment>
 </navigation>

@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
 
         // Add splash screen
-        <item name="android:windowSplashScreenBackground">@color/rose_ebony</item>
+        <item name="android:windowSplashScreenBackground">@color/middle_blue</item>
         <item name="android:windowSplashScreenAnimationDuration">1000</item>
         <item name="android:windowSplashscreenContent">@string/app_name</item>
 

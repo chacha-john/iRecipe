@@ -6,10 +6,12 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF040201</color>
+    <color name="eerie_black">#222221</color>
     <color name="white">#FFFFFFFF</color>
     <color name="smoke_white">#F5F5F5</color>
     <color name="ua_red">#D22F56</color>
     <color name="burnt_umber">#823229</color>
     <color name="rose_ebony">#634139</color>
     <color name="gainsboro">#E1D8D9</color>
+    <color name="middle_blue">#90DAEE</color>
 </resources>

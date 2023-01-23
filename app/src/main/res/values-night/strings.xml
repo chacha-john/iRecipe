@@ -14,4 +14,8 @@
     <string name="get_started">Get started</string>
     <string name="sign_in">Sign in</string>
     <string name="link_sign_in">Already have an account? Sign in</string>
+    <string name="quick_question">Quick Question:</string>
+    <string name="are_you_a_vegetarian">Are you a \nvegetarian?</string>
+    <string name="nope_show_me_all_the_recipes">Nope, show me all the recipes</string>
+    <string name="yes_hide_recipes_with_meant">Yes, hide recipes with meat</string>
 </resources>
