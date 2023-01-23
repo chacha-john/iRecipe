@@ -74,6 +74,88 @@ class MealDetails : Fragment() {
         binding.measure19.text = sharedVM.mealObject.strMeasure19.toString()
         binding.measure20.text = sharedVM.mealObject.strMeasure20.toString()
         Picasso.get().load(sharedVM.mealObject.strMealThumb).into(binding.mealThumbnail)
+
+        // if the ingredients are empty, hide the textview
+        if (sharedVM.mealObject.strIngredient1.isEmpty()) {
+            binding.ingredient1.visibility = View.GONE
+            binding.measure1.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient2.isEmpty()) {
+            binding.ingredient2.visibility = View.GONE
+            binding.measure2.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient3.isEmpty()) {
+            binding.ingredient3.visibility = View.GONE
+            binding.measure3.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient4.isEmpty()) {
+            binding.ingredient4.visibility = View.GONE
+            binding.measure4.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient5.isEmpty()) {
+            binding.ingredient5.visibility = View.GONE
+            binding.measure5.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient6.isEmpty()) {
+            binding.ingredient6.visibility = View.GONE
+            binding.measure6.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient7.isEmpty()) {
+            binding.ingredient7.visibility = View.GONE
+            binding.measure7.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient8.isEmpty()) {
+            binding.ingredient8.visibility = View.GONE
+            binding.measure8.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient9.isEmpty()) {
+            binding.ingredient9.visibility = View.GONE
+            binding.measure9.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient10.isEmpty()) {
+            binding.ingredient10.visibility = View.GONE
+            binding.measure10.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient11.isEmpty()) {
+            binding.ingredient11.visibility = View.GONE
+            binding.measure11.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient12.isEmpty()) {
+            binding.ingredient12.visibility = View.GONE
+            binding.measure12.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient13.isEmpty()) {
+            binding.ingredient13.visibility = View.GONE
+            binding.measure13.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient14.isEmpty()) {
+            binding.ingredient14.visibility = View.GONE
+            binding.measure14.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient15.isEmpty()) {
+            binding.ingredient15.visibility = View.GONE
+            binding.measure15.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient16.toString().isEmpty()) {
+            binding.ingredient16.visibility = View.GONE
+            binding.measure16.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient17.toString().isEmpty()) {
+            binding.ingredient17.visibility = View.GONE
+            binding.measure17.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient18.toString().isEmpty()) {
+            binding.ingredient18.visibility = View.GONE
+            binding.measure18.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient19.toString().isEmpty()) {
+            binding.ingredient19.visibility = View.GONE
+            binding.measure19.visibility = View.GONE
+        }
+        if (sharedVM.mealObject.strIngredient20.toString().isEmpty()) {
+            binding.ingredient20.visibility = View.GONE
+            binding.measure20.visibility = View.GONE
+        }
         return binding.root
     }
 

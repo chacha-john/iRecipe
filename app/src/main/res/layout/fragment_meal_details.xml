@@ -6,11 +6,20 @@
     <data>
 
     </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="720dp"
         android:padding="10dp"
+        android:id="@+id/scrollView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/buttonCancel"
+        app:layout_constraintVertical_bias="0"
         tools:context=".ui.MealDetails">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -439,34 +448,35 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/buttonCancel"
-                android:text="@string/button_back"
-                android:background="@drawable/background_button_back"
-                app:icon="@drawable/ic_round_arrow_back_24"
-                app:iconGravity="textStart"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/buttonSave"
-                app:layout_constraintTop_toBottomOf="@id/strInstructions"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/buttonSave"
-                app:iconTint="@color/smoke_white"
-                app:iconGravity="textEnd"
-                android:background="@drawable/background_button_save"
-                android:text="@string/button_favourite"
-                app:icon="@drawable/ic_baseline_bookmark_add_24"
-                app:layout_constraintBaseline_toBaselineOf="@id/buttonCancel"
-                app:layout_constraintStart_toEndOf="@id/buttonCancel"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </ScrollView>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonCancel"
+        android:text="@string/button_back"
+        android:background="@drawable/background_button_back"
+        app:icon="@drawable/ic_round_arrow_back_24"
+        app:iconGravity="textStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/buttonSave"
+        app:layout_constraintTop_toBottomOf="@id/scrollView"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonSave"
+        app:iconTint="@color/smoke_white"
+        app:iconGravity="textEnd"
+        android:background="@drawable/background_button_save"
+        android:text="@string/button_favourite"
+        app:icon="@drawable/ic_baseline_bookmark_add_24"
+        app:layout_constraintBaseline_toBaselineOf="@id/buttonCancel"
+        app:layout_constraintStart_toEndOf="@id/buttonCancel"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
