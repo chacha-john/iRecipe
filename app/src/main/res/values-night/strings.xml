@@ -10,4 +10,8 @@
     <string name="text_instructions">Instructions</string>
     <string name="button_back">Back</string>
     <string name="button_favourite">Favourite</string>
+    <string name="yeah_i_can_cook_that">Yeah, I can cook that!</string>
+    <string name="get_started">Get started</string>
+    <string name="sign_in">Sign in</string>
+    <string name="link_sign_in">Already have an account? Sign in</string>
 </resources>
