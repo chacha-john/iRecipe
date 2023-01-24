@@ -10,45 +10,44 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="20dp"
-        tools:context=".ui.Meals">
-
+        android:padding="20dp"
+        tools:context=".ui.Favorites">
         <androidx.appcompat.widget.SearchView
-            android:id="@+id/iSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_search"
+            android:id="@+id/iSearch"
+            app:iconifiedByDefault="false"
             android:imeOptions="actionSearch"
             android:inputType="text"
-            android:textAlignment="center"
-            app:iconifiedByDefault="false"
-            app:layout_constraintBottom_toTopOf="@id/textHeader"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:queryHint="Search for recipes" />
+            app:layout_constraintBottom_toTopOf="@id/textHeader"
+            android:background="@drawable/background_search"
+            android:textAlignment="center"
+            app:queryHint="Search my recipes" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textHeader"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/text_cta"
-            android:textSize="15sp"
+            android:id="@+id/textHeader"
+            android:text="@string/my_cook_books"
+            android:textSize="28sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/recyclerViewRecipes"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iSearch" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/recyclerViewRecipes"
+            app:layout_constraintTop_toBottomOf="@id/iSearch" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewRecipes"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            app:layout_constraintHeight_max="550dp"
+            android:id="@+id/recyclerViewRecipes"
+            app:layout_constraintTop_toBottomOf="@id/textHeader"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_max="550dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textHeader"
             tools:listitem="@layout/meal_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

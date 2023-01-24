@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.nav_tips -> {
                     // Handle tips navigation
-                    navController.navigate(R.id.tips)
+                    navController.navigate(R.id.nutritionalTips)
                     it.isChecked = true
                     true
                 }

@@ -41,4 +41,18 @@
             android:id="@+id/action_accountSetup_to_meals"
             app:destination="@id/meals" />
     </fragment>
+    <fragment
+        android:id="@+id/favorites"
+        android:name="com.chachaup.irecipe.ui.Favorites"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favorites_to_mealDetails"
+            app:destination="@id/mealDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/nutritionalTips"
+        android:name="com.chachaup.irecipe.ui.NutritionalTips"
+        android:label="fragment_nutritional_tips"
+        tools:layout="@layout/fragment_nutritional_tips" />
 </navigation>

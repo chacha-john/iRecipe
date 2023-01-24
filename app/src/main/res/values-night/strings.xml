@@ -21,4 +21,6 @@
     <string name="discover">Discover</string>
     <string name="nutrition_tips">Nutrition Tips</string>
     <string name="my_recipes">My Recipes</string>
+    <string name="my_cook_books">My cook books</string>
+    <string name="healthy_tips_for_a_healthy_life">Healthy tips for a healthy life</string>
 </resources>
