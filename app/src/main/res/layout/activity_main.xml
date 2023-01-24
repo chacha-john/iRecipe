@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
             android:name="androidx.navigation.fragment.NavHostFragment"
 
             app:defaultNavHost="true"
@@ -31,9 +31,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/bottom_navigation_menu"
-            app:itemIconTint="@color/ua_red"
-            app:itemTextColor="@color/eerie_black"
+            app:itemIconTint="@color/nav_item_states_list"
+            app:itemTextColor="@color/nav_item_states_list"
             app:labelVisibilityMode="labeled"
+            app:layout_constraintTop_toBottomOf="@id/nav_host_fragment"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
