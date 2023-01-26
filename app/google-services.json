@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "93753923724",
+    "project_id": "chacharecipes",
+    "storage_bucket": "chacharecipes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93753923724:android:c1a0d1f4ab9f4ded4903a9",
+        "android_client_info": {
+          "package_name": "com.chachaup.irecipe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93753923724-5r9l3isu1a26usm46g11t4a8q6s51vos.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chachaup.irecipe",
+            "certificate_hash": "1b19f76dee881eb875755574434567f55ceda442"
+          }
+        },
+        {
+          "client_id": "93753923724-uo56vm2p91i1k88fmsnm8o43lp76pkc2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrZRkbzUatLFsoy5W8RU7jOl63XVBb8sA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "93753923724-uo56vm2p91i1k88fmsnm8o43lp76pkc2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
