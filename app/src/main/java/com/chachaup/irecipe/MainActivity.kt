@@ -2,7 +2,12 @@ package com.chachaup.irecipe
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.View.*
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -10,11 +15,16 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.chachaup.irecipe.databinding.ActivityMainBinding
 import com.chachaup.irecipe.ui.Meals
+import com.chachaup.irecipe.vm.CookdVM
+import com.chachaup.irecipe.vm.CookdVMFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private val sharedViewModel: CookdVM by viewModels { CookdVMFactory((application as IRecipeApplication).repo) }
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,7 +34,12 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController,appBarConfiguration)
         supportActionBar?.hide()
-
+        if (!sharedViewModel.logged_in){
+            binding.bottomNavigation.visibility = INVISIBLE
+        }
+        else{
+            binding.bottomNavigation.visibility = VISIBLE
+        }
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
