@@ -11,12 +11,16 @@ import androidx.navigation.fragment.findNavController
 import com.chachaup.irecipe.IRecipeApplication
 import com.chachaup.irecipe.R
 import com.chachaup.irecipe.databinding.FragmentLoginBinding
+import com.chachaup.irecipe.utils.toast
 import com.chachaup.irecipe.vm.CookdVM
 import com.chachaup.irecipe.vm.CookdVMFactory
+import com.google.firebase.auth.FirebaseAuth
 
 class Login : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private val sharedVM: CookdVM by activityViewModels { CookdVMFactory((activity?.application as IRecipeApplication).repo) }
+
+    private val mAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,9 +36,24 @@ class Login : Fragment() {
         binding.apply {
             buttonLogin.setOnClickListener {
                 findNavController().navigate(R.id.action_login_to_meals)
+                createUser()
                 sharedVM.updateBottomNavVisibility(true)
             }
             textViewLinkCreateAccount.setOnClickListener { findNavController().navigate(R.id.action_login_to_createAccount) }
+        }
+    }
+    private fun createUser(){
+        mAuth.createUserWithEmailAndPassword(binding.editTextEmail.text.toString(),binding.editTextPassword.text.toString()).addOnCompleteListener { task ->
+            run {
+                if (task.isSuccessful) {
+                    val user = mAuth.currentUser
+                    toast("success")
+
+                } else {
+                    toast("Failed")
+
+                }
+            }
         }
     }
 
