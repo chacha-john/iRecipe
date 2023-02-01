@@ -6,7 +6,9 @@ import android.view.View
 import android.view.View.*
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -22,24 +24,21 @@ import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private val sharedViewModel: CookdVM by viewModels { CookdVMFactory((application as IRecipeApplication).repo) }
     private lateinit var binding: ActivityMainBinding
+    private val sharedVM: CookdVM by viewModels { CookdVMFactory((application as IRecipeApplication).repo) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        binding = setContentView(this, R.layout.activity_main)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController,appBarConfiguration)
         supportActionBar?.hide()
-        if (!sharedViewModel.logged_in){
-            binding.bottomNavigation.visibility = INVISIBLE
-        }
-        else{
-            binding.bottomNavigation.visibility = VISIBLE
-        }
+
+        sharedVM.bottomNavigationVisibility.observe(this, Observer {
+            binding.bottomNavigation.visibility = it
+        })
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
