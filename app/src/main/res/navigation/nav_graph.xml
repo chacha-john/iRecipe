@@ -74,6 +74,17 @@
             app:destination="@id/createAccount" />
         <action
             android:id="@+id/action_login_to_meals"
+            app:popUpTo="@id/meals"
+            app:popUpToInclusive="true"
             app:destination="@id/meals" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestRegistration"
+        android:name="com.chachaup.irecipe.ui.RequestRegistration"
+        tools:layout="@layout/fragment_request_registration"
+        android:label="RequestRegistration" >
+        <action
+            android:id="@+id/action_requestRegistration_to_login"
+            app:destination="@id/login" />
     </fragment>
 </navigation>

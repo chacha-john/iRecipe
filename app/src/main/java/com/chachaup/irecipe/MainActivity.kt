@@ -21,11 +21,15 @@ import com.chachaup.irecipe.vm.CookdVM
 import com.chachaup.irecipe.vm.CookdVMFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private val sharedVM: CookdVM by viewModels { CookdVMFactory((application as IRecipeApplication).repo) }
+
+    private lateinit var authListener: FirebaseAuth.AuthStateListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +38,15 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController,appBarConfiguration)
-        supportActionBar?.hide()
 
+        supportActionBar?.hide() // hide support action bar
+
+        // controls visibility of the bottom navigation
         sharedVM.bottomNavigationVisibility.observe(this, Observer {
             binding.bottomNavigation.visibility = it
         })
+
+        // logic for the bottom navigation view
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
@@ -65,6 +73,23 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        authListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
+            val user = firebaseAuth.currentUser
+            if (user != null) updateUI(user) else updateUI(null)
+        }
+    }
+
+    private fun updateUI(user: FirebaseUser?){
+        if (user != null){
+            //update ui
+        }
+        else{
+//            updateUI
+        }
     }
 
 }

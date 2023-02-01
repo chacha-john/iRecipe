@@ -36,4 +36,6 @@
     <string name="hint_confirm_password">Confirm Password</string>
     <string name="link_don_t_have_an_account"><u>Don\'t have an account?</u></string>
     <string name="link_already_have_an_account"><u>Already have an account?</u></string>
+    <string name="text_to_personalize_your_favorite_recipes_please_login">To personalize your favorite recipes \nPlease login</string>
+    <string name="text_proceed_to_login">Proceed to login</string>
 </resources>

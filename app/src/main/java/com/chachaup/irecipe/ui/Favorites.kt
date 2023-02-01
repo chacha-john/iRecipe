@@ -5,16 +5,37 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.chachaup.irecipe.IRecipeApplication
 import com.chachaup.irecipe.R
+import com.chachaup.irecipe.databinding.FragmentCreateAccountBinding
+import com.chachaup.irecipe.vm.CookdVM
+import com.chachaup.irecipe.vm.CookdVMFactory
+import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 
 class Favorites : Fragment() {
+
+    private lateinit var binding: FragmentCreateAccountBinding
+
+    private val sharedViewModel: CookdVM by activityViewModels { CookdVMFactory((activity?.application as IRecipeApplication).repo) }
+
+    private lateinit var authStateListener: AuthStateListener
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorites, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_favorites, container, false)
+        authStateListener = AuthStateListener { firebaseAuth ->
+            val user = firebaseAuth.currentUser
+            if (user == null){
+                findNavController().navigate(R.id.requestRegistration)
+            }
+        }
+        return binding.root
     }
 
 }
