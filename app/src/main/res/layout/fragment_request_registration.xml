@@ -33,13 +33,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/proceed_to_login"
+            android:src="@drawable/big_boy"
             app:layout_constraintVertical_bias=".55"
-            android:scaleType="centerCrop"/>
+            android:scaleType="fitCenter" />
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/buttonProceedToLogin"
             android:text="@string/text_proceed_to_login"
             android:textAllCaps="false"
             android:background="@drawable/background_button_save"

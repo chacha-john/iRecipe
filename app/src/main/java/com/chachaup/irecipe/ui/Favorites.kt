@@ -11,17 +11,21 @@ import androidx.navigation.fragment.findNavController
 import com.chachaup.irecipe.IRecipeApplication
 import com.chachaup.irecipe.R
 import com.chachaup.irecipe.databinding.FragmentCreateAccountBinding
+import com.chachaup.irecipe.databinding.FragmentFavoritesBinding
 import com.chachaup.irecipe.vm.CookdVM
 import com.chachaup.irecipe.vm.CookdVMFactory
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 
 class Favorites : Fragment() {
 
-    private lateinit var binding: FragmentCreateAccountBinding
+    private lateinit var binding: FragmentFavoritesBinding
 
     private val sharedViewModel: CookdVM by activityViewModels { CookdVMFactory((activity?.application as IRecipeApplication).repo) }
 
     private lateinit var authStateListener: AuthStateListener
+    
+    private val mAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +40,16 @@ class Favorites : Fragment() {
             }
         }
         return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mAuth.addAuthStateListener(authStateListener)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (authStateListener != null) mAuth.removeAuthStateListener(authStateListener)
     }
 
 }

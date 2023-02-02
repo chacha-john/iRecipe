@@ -2,6 +2,9 @@ package com.chachaup.irecipe
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.View.*
 import androidx.activity.viewModels
@@ -39,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController,appBarConfiguration)
 
-        supportActionBar?.hide() // hide support action bar
+//        supportActionBar?.hide() // hide support action bar
 
         // controls visibility of the bottom navigation
         sharedVM.bottomNavigationVisibility.observe(this, Observer {
@@ -90,6 +93,16 @@ class MainActivity : AppCompatActivity() {
         else{
 //            updateUI
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.actionLogout) FirebaseAuth.getInstance().signOut()
+        return true
     }
 
 }

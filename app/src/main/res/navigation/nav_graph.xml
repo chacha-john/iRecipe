@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/meals"
         android:name="com.chachaup.irecipe.ui.Meals"
-        android:label="Meals"
+        android:label="Discover Meals"
         tools:layout="@layout/fragment_meals" >
         <action
             android:id="@+id/action_meals_to_mealDetails"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/mealDetails"
         android:name="com.chachaup.irecipe.ui.MealDetails"
-        android:label="fragment_meal_details"
+        android:label="Meal Recipe"
         tools:layout="@layout/fragment_meal_details" >
         <action
             android:id="@+id/action_mealDetails_to_meals"
@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/getStarted"
         android:name="com.chachaup.irecipe.ui.GetStarted"
-        android:label="fragment_get_started"
+        android:label="Welcome"
         tools:layout="@layout/fragment_get_started" >
         <action
             android:id="@+id/action_getStarted_to_accountSetup"
@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/accountSetup"
         android:name="com.chachaup.irecipe.ui.AccountSetup"
-        android:label="fragment_account_setup"
+        android:label="Let's set you up"
         tools:layout="@layout/fragment_account_setup" >
         <action
             android:id="@+id/action_accountSetup_to_meals"
@@ -53,12 +53,12 @@
     <fragment
         android:id="@+id/nutritionalTips"
         android:name="com.chachaup.irecipe.ui.NutritionalTips"
-        android:label="fragment_nutritional_tips"
+        android:label="Healthy Tips"
         tools:layout="@layout/fragment_nutritional_tips" />
     <fragment
         android:id="@+id/createAccount"
         android:name="com.chachaup.irecipe.ui.CreateAccount"
-        android:label="fragment_create_account"
+        android:label="Let's set up an account for you"
         tools:layout="@layout/fragment_create_account" >
         <action
             android:id="@+id/action_createAccount_to_login"
@@ -67,7 +67,7 @@
     <fragment
         android:id="@+id/login"
         android:name="com.chachaup.irecipe.ui.Login"
-        android:label="fragment_login"
+        android:label="Login to continue"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_login_to_createAccount"
@@ -82,7 +82,7 @@
         android:id="@+id/requestRegistration"
         android:name="com.chachaup.irecipe.ui.RequestRegistration"
         tools:layout="@layout/fragment_request_registration"
-        android:label="RequestRegistration" >
+        android:label="Login to continue" >
         <action
             android:id="@+id/action_requestRegistration_to_login"
             app:destination="@id/login" />
