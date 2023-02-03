@@ -7,6 +7,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.View.*
+import android.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.DataBindingUtil.setContentView
@@ -16,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.chachaup.irecipe.databinding.ActivityMainBinding
@@ -33,15 +35,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val sharedVM: CookdVM by viewModels { CookdVMFactory((application as IRecipeApplication).repo) }
 
-    private lateinit var authListener: FirebaseAuth.AuthStateListener
+    private lateinit var mLogoutMenuItem: MenuItem
 
-    private val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-    private val navController = navHostFragment.navController
+    private lateinit var authListener: FirebaseAuth.AuthStateListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = setContentView(this, R.layout.activity_main)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph)
+
         setupActionBarWithNavController(navController,appBarConfiguration)
 
 //        supportActionBar?.hide() // hide support action bar
@@ -99,37 +103,52 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
-        updateLogoutMenuItem(menu)
+        if (menu != null) {
+            mLogoutMenuItem = menu.findItem(R.id.actionLogout)
+        }
+        updateLogoutMenuItem()
         return true
     }
 
     // logging out
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.actionLogout) FirebaseAuth.getInstance().signOut()
-        supportActionBar?.hide()
-        return true
+        return when(item.itemId){
+            R.id.actionLogout -> {
+                if (isUserLoggedIn()){
+                    FirebaseAuth.getInstance().signOut()
+                } else{
+                    findNavController(R.id.nav_host_fragment).navigate(R.id.requestRegistration)
+                }
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
-    private fun updateLogoutMenuItem(menu: Menu?){
-        menuInflater.inflate(R.menu.menu_main, menu)
-        val mLogoutMenu = menu?.findItem(R.id.actionLogout)
+    private fun updateLogoutMenuItem(){
         if (isUserLoggedIn()){
-            mLogoutMenu?.title = getString(R.string.text_logout)
+            mLogoutMenuItem.title = getString(R.string.text_logout)
         }
         else{
-            mLogoutMenu?.title = getString(R.string.text_login)
+            mLogoutMenuItem.title = getString(R.string.text_login)
         }
     }
 
     private fun isUserLoggedIn(): Boolean {
-        var flag by Delegates.notNull<Boolean>()
+        var flag = true
         FirebaseAuth.AuthStateListener { firebaseAuth ->
             val user = firebaseAuth.currentUser
-            flag = user != null
+            flag = user == null // is true if there is a user logged in and false when there isn't
     }
         return flag
 
     }
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp(appBarConfiguration)
+                || super.onSupportNavigateUp()
+    }
+
 
 
 }
