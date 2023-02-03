@@ -24,10 +24,6 @@ class CookdVM(private val repo: MealsRepo) : ViewModel() {
     private val _mealObject: MutableLiveData<Meal> by lazy { MutableLiveData<Meal>() }
     val mealObject1: LiveData<Meal> get() = _mealObject
 
-    fun createAccount(email: String, first_name:String, last_name: String, phone: String, password:String){
-
-    }
-
     fun updateBottomNavVisibility(isLoggedIn: Boolean){
         bottomNavigationVisibility.value = if (isLoggedIn){
             View.VISIBLE

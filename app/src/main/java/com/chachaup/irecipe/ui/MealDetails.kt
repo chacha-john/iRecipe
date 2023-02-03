@@ -12,9 +12,13 @@ import com.chachaup.irecipe.IRecipeApplication
 import com.chachaup.irecipe.R
 import com.chachaup.irecipe.databinding.FragmentMealDetailsBinding
 import com.chachaup.irecipe.databinding.FragmentMealsBinding
+import com.chachaup.irecipe.utils.Constants
 import com.chachaup.irecipe.utils.toast
 import com.chachaup.irecipe.vm.CookdVM
 import com.chachaup.irecipe.vm.CookdVMFactory
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
 
 class MealDetails : Fragment() {
@@ -29,6 +33,7 @@ class MealDetails : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        sharedVM.updateBottomNavVisibility(false)
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_meal_details, container, false)
         binding.strMeal.text = sharedVM.mealObject.strMeal
@@ -166,9 +171,22 @@ class MealDetails : Fragment() {
                 findNavController().navigate(R.id.action_mealDetails_to_meals)
             }
             buttonSave.setOnClickListener {
-                toast("You have discovered a premium feature")
+                val user = FirebaseAuth.getInstance().currentUser
+                val uid = user?.uid
+                val databaseRef = uid?.let { it1 ->
+                    FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPES).child(
+                        it1
+                    )
+                }
+                databaseRef?.push()?.setValue(sharedVM.mealObject)
+                toast("Meal saved to your favorites")
             }
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        sharedVM.updateBottomNavVisibility(true)
     }
 
 

@@ -26,6 +26,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -34,11 +35,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var authListener: FirebaseAuth.AuthStateListener
 
+    private val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+    private val navController = navHostFragment.navController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = setContentView(this, R.layout.activity_main)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController,appBarConfiguration)
 
@@ -78,7 +80,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onStart() {
+    /** override fun onStart() {
         super.onStart()
         authListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
             val user = firebaseAuth.currentUser
@@ -88,21 +90,46 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?){
         if (user != null){
-            //update ui
+            navController.navigate(R.id.meals)
         }
         else{
-//            updateUI
+            navController.navigate(R.id.requestRegistration)
         }
-    }
+    } */
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
+        updateLogoutMenuItem(menu)
         return true
     }
 
+    // logging out
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.actionLogout) FirebaseAuth.getInstance().signOut()
+        supportActionBar?.hide()
         return true
     }
+
+    private fun updateLogoutMenuItem(menu: Menu?){
+        menuInflater.inflate(R.menu.menu_main, menu)
+        val mLogoutMenu = menu?.findItem(R.id.actionLogout)
+        if (isUserLoggedIn()){
+            mLogoutMenu?.title = getString(R.string.text_logout)
+        }
+        else{
+            mLogoutMenu?.title = getString(R.string.text_login)
+        }
+    }
+
+    private fun isUserLoggedIn(): Boolean {
+        var flag by Delegates.notNull<Boolean>()
+        FirebaseAuth.AuthStateListener { firebaseAuth ->
+            val user = firebaseAuth.currentUser
+            flag = user != null
+    }
+        return flag
+
+    }
+
 
 }

@@ -1,17 +1,14 @@
 package com.chachaup.irecipe.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager.TAG
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.chachaup.irecipe.IRecipeApplication
-import com.chachaup.irecipe.MainActivity
 import com.chachaup.irecipe.R
 import com.chachaup.irecipe.databinding.FragmentLoginBinding
 import com.chachaup.irecipe.utils.toast
@@ -38,7 +35,7 @@ class Login : Fragment() {
             if (user != null) {
                 findNavController().navigate(R.id.action_login_to_meals)
                 sharedVM.updateBottomNavVisibility(true)
-            }
+            } else (sharedVM.updateBottomNavVisibility(false))
 
         }
         return binding.root
@@ -48,12 +45,15 @@ class Login : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             buttonLogin.setOnClickListener {
-                mAuth.signInWithEmailAndPassword(editTextEmail.text.toString(), editTextPassword.text.toString())
+                mAuth.signInWithEmailAndPassword(
+                    editTextEmail.text.toString(),
+                    editTextPassword.text.toString()
+                )
                     .addOnCompleteListener { task ->
-                        if (!task.isSuccessful){
+                        if (!task.isSuccessful) {
                             toast(task.exception.toString())
                         }
-                     }
+                    }
                 findNavController().navigate(R.id.action_login_to_meals)
                 sharedVM.updateBottomNavVisibility(true)
             }
@@ -68,7 +68,7 @@ class Login : Fragment() {
 
     override fun onStop() {
         super.onStop()
-        if (authStateListener != null){
+        if (authStateListener != null) {
             mAuth.removeAuthStateListener(authStateListener)
         }
     }

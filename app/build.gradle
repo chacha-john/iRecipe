@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.chachaup.irecipe"
-        minSdk 31
+        minSdk 29
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -129,4 +129,5 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:31.2.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-database:20.1.0'
 }

@@ -1,6 +1,5 @@
 package com.chachaup.irecipe.ui
 
-import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.chachaup.irecipe.IRecipeApplication
 import com.chachaup.irecipe.R
 import com.chachaup.irecipe.adapter.MealListAdapter
@@ -76,6 +74,8 @@ class Meals : Fragment() {
                 adapter.submitList(response.body()?.meals)
                 recyclerView.layoutManager = GridLayoutManager(context,2)
                 recyclerView.adapter = adapter
+                binding.recyclerViewRecipes.visibility = View.VISIBLE
+                binding.progressBarMeals.visibility = View.GONE
             }
 
             override fun onFailure(call: Call<MealResponseItem>, t: Throwable) {
@@ -89,6 +89,11 @@ class Meals : Fragment() {
     private fun adapterOnClick(meal: Meal){
         sharedVM.mealObject = meal
         findNavController().navigate(R.id.action_meals_to_mealDetails)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        searchByName("")
     }
 
 }
