@@ -1,5 +1,6 @@
 package com.chachaup.irecipe.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -43,8 +44,8 @@ class Meals : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
+//        searchByName("")
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_meals, container, false)
-        searchByName("")
         return binding.root
     }
 
@@ -89,11 +90,6 @@ class Meals : Fragment() {
     private fun adapterOnClick(meal: Meal){
         sharedVM.mealObject = meal
         findNavController().navigate(R.id.action_meals_to_mealDetails)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        searchByName("")
     }
 
 }

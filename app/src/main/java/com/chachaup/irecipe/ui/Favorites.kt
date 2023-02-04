@@ -16,7 +16,10 @@ import com.chachaup.irecipe.vm.CookdVM
 import com.chachaup.irecipe.vm.CookdVMFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class Favorites : Fragment() {
 
     private lateinit var binding: FragmentFavoritesBinding
@@ -25,7 +28,7 @@ class Favorites : Fragment() {
 
     private lateinit var authStateListener: AuthStateListener
     
-    private val mAuth = FirebaseAuth.getInstance()
+    @Inject lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,12 +47,12 @@ class Favorites : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        mAuth.addAuthStateListener(authStateListener)
+        firebaseAuth.addAuthStateListener(authStateListener)
     }
 
     override fun onStop() {
         super.onStop()
-        if (authStateListener != null) mAuth.removeAuthStateListener(authStateListener)
+        if (authStateListener != null) firebaseAuth.removeAuthStateListener(authStateListener)
     }
 
 }

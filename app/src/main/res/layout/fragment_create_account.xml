@@ -43,53 +43,11 @@
         <androidx.appcompat.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_first_name"
-            android:id="@+id/editTextFirstName"
-            android:inputType="textPersonName"
-            android:background="@drawable/textbox_background"
-            app:layout_constraintTop_toBottomOf="@id/editTextEmail"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="20dp"
-            android:padding="15dp"
-            android:textSize="12sp" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_last_name"
-            android:id="@+id/editTextLastName"
-            android:inputType="textPersonName"
-            android:background="@drawable/textbox_background"
-            app:layout_constraintTop_toBottomOf="@id/editTextFirstName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="20dp"
-            android:padding="15dp"
-            android:textSize="12sp" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_phone_number"
-            android:id="@+id/editTextPhone"
-            android:inputType="phone"
-            android:background="@drawable/textbox_background"
-            app:layout_constraintTop_toBottomOf="@id/editTextLastName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="20dp"
-            android:padding="15dp"
-            android:textSize="12sp" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:hint="@string/hint_password"
             android:id="@+id/editTextPassword"
             android:inputType="textPassword"
             android:background="@drawable/textbox_background"
-            app:layout_constraintTop_toBottomOf="@id/editTextPhone"
+            app:layout_constraintTop_toBottomOf="@id/editTextEmail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="20dp"

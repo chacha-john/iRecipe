@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.chachaup.irecipe.IRecipeApplication
 import com.chachaup.irecipe.R
+import com.chachaup.irecipe.data.User
 import com.chachaup.irecipe.databinding.FragmentCreateAccountBinding
 import com.chachaup.irecipe.utils.toast
 import com.chachaup.irecipe.vm.CookdVM
@@ -23,8 +24,6 @@ class CreateAccount : Fragment() {
     private lateinit var binding: FragmentCreateAccountBinding
 
     private val sharedViewModel: CookdVM by activityViewModels { CookdVMFactory((activity?.application as IRecipeApplication).repo) }
-
-    private val mAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,34 +39,17 @@ class CreateAccount : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             buttonCreateAccount.setOnClickListener {
-                createUser(editTextEmail.text.toString(), editTextPassword.text.toString())
+                val user = User(editTextEmail.text.toString(), editTextPassword.text.toString())
+                sharedViewModel.createUser(user).addOnCompleteListener { task ->
+                    if (task.isSuccessful){
+                        toast("Success")
+                    }
+                    else{
+                        toast("There was an error creating new user!")
+                    }
+                }
                 findNavController().navigate(R.id.action_createAccount_to_login)
             }
-        }
-    }
-
-    private fun createUser(email: String, pass: String) {
-        mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                val user = mAuth.currentUser
-                createUserProfile(user)
-                toast("success")
-
-            } else {
-                toast("Failed")
-
-            }
-        }
-    }
-
-    private fun createUserProfile(user: FirebaseUser?) {
-        val addName = UserProfileChangeRequest.Builder()
-            .setDisplayName(binding.editTextLastName.text.toString()).build()
-        user?.updateProfile(addName)?.addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                toast("Success")
-            }
-
         }
     }
 

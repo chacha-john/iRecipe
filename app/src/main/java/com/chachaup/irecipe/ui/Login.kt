@@ -15,12 +15,15 @@ import com.chachaup.irecipe.utils.toast
 import com.chachaup.irecipe.vm.CookdVM
 import com.chachaup.irecipe.vm.CookdVMFactory
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class Login : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private val sharedVM: CookdVM by activityViewModels { CookdVMFactory((activity?.application as IRecipeApplication).repo) }
 
-    private val mAuth = FirebaseAuth.getInstance()
+    @Inject lateinit var firebaseAuth: FirebaseAuth
 
     private lateinit var authStateListener: FirebaseAuth.AuthStateListener
 
@@ -45,7 +48,7 @@ class Login : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             buttonLogin.setOnClickListener {
-                mAuth.signInWithEmailAndPassword(
+                firebaseAuth.signInWithEmailAndPassword(
                     editTextEmail.text.toString(),
                     editTextPassword.text.toString()
                 )
@@ -63,13 +66,13 @@ class Login : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        mAuth.addAuthStateListener(authStateListener)
+        firebaseAuth.addAuthStateListener(authStateListener)
     }
 
     override fun onStop() {
         super.onStop()
         if (authStateListener != null) {
-            mAuth.removeAuthStateListener(authStateListener)
+            firebaseAuth.removeAuthStateListener(authStateListener)
         }
     }
 
