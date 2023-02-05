@@ -16,7 +16,7 @@
         // Add splash screen
         <item name="android:windowSplashScreenBackground">@color/middle_blue</item>
         <item name="android:windowSplashScreenAnimationDuration">1000</item>
-<!--        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_recipe</item>-->
+        <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_recipe</item>
     </style>
 
 

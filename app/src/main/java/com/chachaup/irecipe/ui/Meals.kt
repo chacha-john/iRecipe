@@ -44,7 +44,7 @@ class Meals : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-//        searchByName("")
+        searchByName("")
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_meals, container, false)
         return binding.root
     }
