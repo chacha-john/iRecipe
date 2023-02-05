@@ -12,9 +12,9 @@ import retrofit2.http.Query
 
 interface MealInterface {
     @GET("search.php")
-    fun getMeals(
+    suspend fun getMeals(
         @Query("s") meal: String
-    ): retrofit2.Call<MealResponseItem>
+    ): MealResponseItem
 
     companion object{
         operator fun invoke(): MealInterface{

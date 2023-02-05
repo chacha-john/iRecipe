@@ -9,6 +9,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.chachaup.irecipe.IRecipeApplication
@@ -21,9 +22,14 @@ import com.chachaup.irecipe.network.MealInterface
 import com.chachaup.irecipe.utils.toast
 import com.chachaup.irecipe.vm.CookdVM
 import com.chachaup.irecipe.vm.CookdVMFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.await
 
 class Meals : Fragment() {
 
@@ -33,7 +39,7 @@ class Meals : Fragment() {
 
     private lateinit var binding: FragmentMealsBinding
 
-    private val adapter by lazy { MealListAdapter{meal -> adapterOnClick(meal)} }
+    private val mAdapter by lazy { MealListAdapter{meal -> adapterOnClick(meal)} }
 
     private val iRecipeClient: MealInterface = MealInterface.invoke()
 
@@ -44,13 +50,13 @@ class Meals : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        searchByName("")
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_meals, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        searchByName("")
         binding.apply {
             iSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
                 override fun onQueryTextSubmit(query: String?): Boolean {
@@ -67,24 +73,22 @@ class Meals : Fragment() {
     }
 
     private fun searchByName(meal: String){
-        iRecipeClient.getMeals(meal).enqueue(object : Callback<MealResponseItem>{
-            override fun onResponse(
-                call: Call<MealResponseItem>,
-                response: Response<MealResponseItem>
-            ) {
-                adapter.submitList(response.body()?.meals)
-                recyclerView.layoutManager = GridLayoutManager(context,2)
-                recyclerView.adapter = adapter
-                binding.recyclerViewRecipes.visibility = View.VISIBLE
+        // Use coroutines to make network request
+        lifecycleScope.launch {
+            try {
+                val response = iRecipeClient.getMeals(meal)
+                mAdapter.submitList(response.meals)
+                binding.recyclerViewRecipes.apply {
+                    layoutManager = GridLayoutManager(context, 2)
+                    adapter = mAdapter
+                    visibility = View.VISIBLE
+                }
+            } catch (e: Exception) {
+                toast("Failed")
+            } finally {
                 binding.progressBarMeals.visibility = View.GONE
             }
-
-            override fun onFailure(call: Call<MealResponseItem>, t: Throwable) {
-                toast("Failed")
-            }
-
-
-        })
+        }
     }
 
     private fun adapterOnClick(meal: Meal){
