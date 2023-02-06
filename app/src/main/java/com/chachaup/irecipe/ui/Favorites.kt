@@ -24,7 +24,7 @@ class Favorites : Fragment() {
 
     private lateinit var binding: FragmentFavoritesBinding
 
-    private val sharedViewModel: CookdVM by activityViewModels { CookdVMFactory((activity?.application as IRecipeApplication).repo) }
+    private val sharedViewModel: CookdVM by activityViewModels()
 
     private lateinit var authStateListener: AuthStateListener
     

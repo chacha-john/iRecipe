@@ -18,12 +18,14 @@ import com.chachaup.irecipe.vm.CookdVMFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CreateAccount : Fragment() {
 
     private lateinit var binding: FragmentCreateAccountBinding
 
-    private val sharedViewModel: CookdVM by activityViewModels { CookdVMFactory((activity?.application as IRecipeApplication).repo) }
+    private val sharedViewModel: CookdVM by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

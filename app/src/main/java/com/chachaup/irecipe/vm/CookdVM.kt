@@ -13,10 +13,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject
+import javax.inject.Singleton
 
-class CookdVM @ViewModelScoped constructor(private val repo: MealsRepo) : ViewModel() {
+@ViewModelScoped
+class CookdVM @Inject constructor(private val repo: MealsRepo) : ViewModel() {
 
     @Inject lateinit var firebaseAuth: FirebaseAuth
+
     lateinit var mealObject: Meal
 
     val bottomNavigationVisibility: MutableLiveData<Int> by lazy { MutableLiveData<Int>()}

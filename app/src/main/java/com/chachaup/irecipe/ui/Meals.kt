@@ -20,13 +20,13 @@ import com.chachaup.irecipe.network.MealInterface
 import com.chachaup.irecipe.utils.toast
 import com.chachaup.irecipe.vm.CookdVM
 import com.chachaup.irecipe.vm.CookdVMFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class Meals : Fragment() {
 
-    private val sharedVM: CookdVM by activityViewModels {
-        CookdVMFactory((activity?.application as IRecipeApplication).repo)
-    }
+    private val sharedVM: CookdVM by activityViewModels()
 
     private lateinit var binding: FragmentMealsBinding
 

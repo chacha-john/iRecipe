@@ -22,7 +22,8 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class Login : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-    private val sharedVM: CookdVM by activityViewModels { CookdVMFactory((activity?.application as IRecipeApplication).repo) }
+
+    private val sharedVM: CookdVM by activityViewModels()
 
     @Inject lateinit var firebaseAuth: FirebaseAuth
 

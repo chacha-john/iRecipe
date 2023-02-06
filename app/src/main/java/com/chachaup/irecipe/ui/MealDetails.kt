@@ -167,9 +167,6 @@ class MealDetails : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-            buttonCancel.setOnClickListener{
-                findNavController().navigate(R.id.action_mealDetails_to_meals)
-            }
             buttonSave.setOnClickListener {
                 val user = FirebaseAuth.getInstance().currentUser
                 val uid = user?.uid

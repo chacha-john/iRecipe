@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val sharedVM: CookdVM by viewModels { CookdVMFactory((application as IRecipeApplication).repo) }
+    private val sharedVM: CookdVM by viewModels()
 
     private lateinit var mLogoutMenuItem: MenuItem
 
@@ -119,7 +119,6 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
-
 
 
 }

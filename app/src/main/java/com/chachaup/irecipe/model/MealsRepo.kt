@@ -1,4 +1,8 @@
 package com.chachaup.irecipe.model
 
-class MealsRepo(private val dao: MealsDao) {
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class MealsRepo @Inject constructor(private val dao: MealsDao) {
 }
