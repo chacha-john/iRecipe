@@ -1,6 +1,5 @@
 package com.chachaup.irecipe.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,20 +15,12 @@ import com.chachaup.irecipe.IRecipeApplication
 import com.chachaup.irecipe.R
 import com.chachaup.irecipe.adapter.MealListAdapter
 import com.chachaup.irecipe.data.Meal
-import com.chachaup.irecipe.data.MealResponseItem
 import com.chachaup.irecipe.databinding.FragmentMealsBinding
 import com.chachaup.irecipe.network.MealInterface
 import com.chachaup.irecipe.utils.toast
 import com.chachaup.irecipe.vm.CookdVM
 import com.chachaup.irecipe.vm.CookdVMFactory
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.await
 
 class Meals : Fragment() {
 
@@ -42,8 +33,6 @@ class Meals : Fragment() {
     private val mAdapter by lazy { MealListAdapter{meal -> adapterOnClick(meal)} }
 
     private val iRecipeClient: MealInterface = MealInterface.invoke()
-
-    private val recyclerView by lazy { binding.recyclerViewRecipes }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

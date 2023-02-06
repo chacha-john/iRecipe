@@ -52,7 +52,8 @@ class Favorites : Fragment() {
 
     override fun onStop() {
         super.onStop()
-        if (authStateListener != null) firebaseAuth.removeAuthStateListener(authStateListener)
+        // add this line to prevent memory leak
+        firebaseAuth.removeAuthStateListener(authStateListener)
     }
 
 }

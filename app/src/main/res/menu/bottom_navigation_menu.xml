@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/nav_discover"
+        android:id="@+id/meals"
         android:icon="@drawable/ic_round_search_24"
-        android:title="@string/discover"/>
+        android:title="@string/discover"
+        app:destination="@id/meals" />
 
     <item
-        android:id="@+id/nav_tips"
+        android:id="@+id/nutritionalTips"
         android:icon="@drawable/ic_baseline_tips_and_updates_24"
-        android:title="@string/nutrition_tips"/>
+        android:title="@string/nutrition_tips"
+        app:destination="@id/nutritionalTips"/>
 
     <item
-        android:id="@+id/nav_favorites"
+        android:id="@+id/favorites"
         android:icon="@drawable/ic_baseline_favorite_24"
-        android:title="@string/my_recipes"/>
+        android:title="@string/my_recipes"
+        app:destination="@id/favorites"/>
 </menu>

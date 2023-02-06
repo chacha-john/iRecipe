@@ -85,6 +85,8 @@
         android:label="Login to continue" >
         <action
             android:id="@+id/action_requestRegistration_to_login"
+            app:popUpTo="@id/login"
+            app:popUpToInclusive="true"
             app:destination="@id/login" />
     </fragment>
 </navigation>

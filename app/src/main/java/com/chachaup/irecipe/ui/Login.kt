@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -33,6 +34,7 @@ class Login : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+
         authStateListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
             val user = firebaseAuth.currentUser
             if (user != null) {
@@ -71,9 +73,8 @@ class Login : Fragment() {
 
     override fun onStop() {
         super.onStop()
-        if (authStateListener != null) {
-            firebaseAuth.removeAuthStateListener(authStateListener)
-        }
+        // Remove the authStateListener if it is not null
+        firebaseAuth.removeAuthStateListener(authStateListener)
     }
 
 }
