@@ -9,8 +9,5 @@ import javax.inject.Inject
 
 @HiltAndroidApp
 class IRecipeApplication: Application() {
-    private val database by lazy { MealsDatabase.getDatabase(applicationContext) }
-    val repo by lazy { MealsRepo(database.mealsDao()) }
 
-    @Inject lateinit var firebaseAuth: FirebaseAuth
 }

@@ -1,22 +1,29 @@
 package com.chachaup.irecipe.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.chachaup.irecipe.IRecipeApplication
+import androidx.recyclerview.widget.GridLayoutManager
 import com.chachaup.irecipe.R
-import com.chachaup.irecipe.databinding.FragmentCreateAccountBinding
+import com.chachaup.irecipe.adapter.FirebaseAdapter
+import com.chachaup.irecipe.adapter.MealListAdapter
+import com.chachaup.irecipe.data.Meal
 import com.chachaup.irecipe.databinding.FragmentFavoritesBinding
+import com.chachaup.irecipe.utils.Constants
+import com.chachaup.irecipe.utils.toast
 import com.chachaup.irecipe.vm.CookdVM
-import com.chachaup.irecipe.vm.CookdVMFactory
+import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
+import com.google.firebase.database.*
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -24,11 +31,16 @@ class Favorites : Fragment() {
 
     private lateinit var binding: FragmentFavoritesBinding
 
-    private val sharedViewModel: CookdVM by activityViewModels()
+    private val sharedVM: CookdVM by activityViewModels()
+
+    private lateinit var firebaseAdapter: FirebaseAdapter
 
     private lateinit var authStateListener: AuthStateListener
-    
-    @Inject lateinit var firebaseAuth: FirebaseAuth
+
+    private lateinit var databaseRef: DatabaseReference
+
+    @Inject
+    lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,9 +50,33 @@ class Favorites : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_favorites, container, false)
         authStateListener = AuthStateListener { firebaseAuth ->
             val user = firebaseAuth.currentUser
-            if (user == null){
+            if (user == null) {
                 findNavController().navigate(R.id.requestRegistration)
+            } else {
+                firebaseAdapter = FirebaseAdapter {
+                    adapterOnClick(it)
+                }
+                binding.recyclerViewRecipes.apply {
+                    layoutManager = GridLayoutManager(context, 2)
+                    adapter = firebaseAdapter
+                    visibility = View.VISIBLE
+                }
+
+                val databaseReference = FirebaseDatabase.getInstance().reference.child(user.uid)
+                databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val meals = snapshot.children.mapNotNull {
+                            it.getValue(Meal::class.java)
+                        }
+                        firebaseAdapter.submitList(meals)
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        toast(error.message)
+                    }
+                })
             }
+
         }
         return binding.root
     }
@@ -56,4 +92,8 @@ class Favorites : Fragment() {
         firebaseAuth.removeAuthStateListener(authStateListener)
     }
 
+    private fun adapterOnClick(meal: Meal) {
+        sharedVM.mealObject = meal
+        findNavController().navigate(R.id.action_favorites_to_mealDetails)
+    }
 }

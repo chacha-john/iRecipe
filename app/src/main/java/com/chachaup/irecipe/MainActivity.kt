@@ -11,7 +11,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.chachaup.irecipe.databinding.ActivityMainBinding
 import com.chachaup.irecipe.vm.CookdVM
-import com.chachaup.irecipe.vm.CookdVMFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint

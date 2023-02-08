@@ -11,7 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.chachaup.irecipe.IRecipeApplication
+import androidx.recyclerview.widget.RecyclerView
 import com.chachaup.irecipe.R
 import com.chachaup.irecipe.adapter.MealListAdapter
 import com.chachaup.irecipe.data.Meal
@@ -19,9 +19,9 @@ import com.chachaup.irecipe.databinding.FragmentMealsBinding
 import com.chachaup.irecipe.network.MealInterface
 import com.chachaup.irecipe.utils.toast
 import com.chachaup.irecipe.vm.CookdVM
-import com.chachaup.irecipe.vm.CookdVMFactory
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class Meals : Fragment() {
@@ -62,6 +62,8 @@ class Meals : Fragment() {
     }
 
     private fun searchByName(meal: String){
+
+
         // Use coroutines to make network request
         lifecycleScope.launch {
             try {
@@ -84,5 +86,7 @@ class Meals : Fragment() {
         sharedVM.mealObject = meal
         findNavController().navigate(R.id.action_meals_to_mealDetails)
     }
+
+
 
 }

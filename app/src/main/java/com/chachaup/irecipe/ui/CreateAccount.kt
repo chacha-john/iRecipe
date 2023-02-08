@@ -8,16 +8,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.chachaup.irecipe.IRecipeApplication
 import com.chachaup.irecipe.R
 import com.chachaup.irecipe.data.User
 import com.chachaup.irecipe.databinding.FragmentCreateAccountBinding
 import com.chachaup.irecipe.utils.toast
 import com.chachaup.irecipe.vm.CookdVM
-import com.chachaup.irecipe.vm.CookdVMFactory
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.UserProfileChangeRequest
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

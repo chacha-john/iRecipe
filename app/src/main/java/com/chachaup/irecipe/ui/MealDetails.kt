@@ -7,25 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
-import com.chachaup.irecipe.IRecipeApplication
 import com.chachaup.irecipe.R
 import com.chachaup.irecipe.databinding.FragmentMealDetailsBinding
-import com.chachaup.irecipe.databinding.FragmentMealsBinding
 import com.chachaup.irecipe.utils.Constants
 import com.chachaup.irecipe.utils.toast
 import com.chachaup.irecipe.vm.CookdVM
-import com.chachaup.irecipe.vm.CookdVMFactory
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MealDetails : Fragment() {
 
-    private val sharedVM: CookdVM by activityViewModels {
-        CookdVMFactory((activity?.application as IRecipeApplication).repo)
-    }
+    private val sharedVM: CookdVM by activityViewModels()
 
     private lateinit var binding: FragmentMealDetailsBinding
 
@@ -176,7 +171,7 @@ class MealDetails : Fragment() {
                     )
                 }
                 databaseRef?.push()?.setValue(sharedVM.mealObject)
-                toast("Meal saved to your favorites")
+                toast("Meal added to your favorites")
             }
         }
     }
