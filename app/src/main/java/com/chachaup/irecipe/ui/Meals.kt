@@ -63,7 +63,6 @@ class Meals : Fragment() {
 
     private fun searchByName(meal: String){
 
-
         // Use coroutines to make network request
         lifecycleScope.launch {
             try {

@@ -16,8 +16,8 @@ class LocalPersistenceModule {
 
     @Singleton
     @Provides
-    fun provideMealsRepo(dao: MealsDao): MealsRepo {
-        return MealsRepo(dao)
+    fun provideMealsRepo(): MealsRepo {
+        return MealsRepo()
     }
 
     @Provides

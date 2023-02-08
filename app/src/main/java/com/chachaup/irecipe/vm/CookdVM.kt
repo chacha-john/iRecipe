@@ -4,19 +4,14 @@ import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.chachaup.irecipe.data.Meal
 import com.chachaup.irecipe.data.User
 import com.chachaup.irecipe.model.MealsRepo
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject
-import javax.inject.Singleton
 
 @ViewModelScoped
 class CookdVM @ViewModelScoped constructor() : ViewModel() {

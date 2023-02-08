@@ -7,23 +7,18 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.chachaup.irecipe.R
 import com.chachaup.irecipe.adapter.FirebaseAdapter
-import com.chachaup.irecipe.adapter.MealListAdapter
 import com.chachaup.irecipe.data.Meal
 import com.chachaup.irecipe.databinding.FragmentFavoritesBinding
-import com.chachaup.irecipe.utils.Constants
 import com.chachaup.irecipe.utils.toast
 import com.chachaup.irecipe.vm.CookdVM
-import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import com.google.firebase.database.*
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -53,13 +48,14 @@ class Favorites : Fragment() {
             if (user == null) {
                 findNavController().navigate(R.id.requestRegistration)
             } else {
-                firebaseAdapter = FirebaseAdapter {
-                    adapterOnClick(it)
-                }
-                binding.recyclerViewRecipes.apply {
-                    layoutManager = GridLayoutManager(context, 2)
-                    adapter = firebaseAdapter
-                    visibility = View.VISIBLE
+                    firebaseAdapter = FirebaseAdapter {
+                        adapterOnClick(it)
+                    binding.recyclerViewRecipes.apply {
+                        layoutManager = GridLayoutManager(context, 2)
+                        adapter = firebaseAdapter
+                        visibility = View.VISIBLE
+                    }
+                    binding.progressBarFavorites.visibility = View.GONE
                 }
 
                 val databaseReference = FirebaseDatabase.getInstance().reference.child(user.uid)
